@@ -9,9 +9,14 @@ inputs:
     description: 'Chip.json filename'
     required: true
     default: 'chip.json'
+  output-wasm:
+    description: 'Output wasm filename'
+    required: false
+    default: 'chip'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
     SOURCES: ${{ inputs.sources }}
     CHIP_JSON: ${{ inputs.chip-json }}
+    OUTPUT_NAME: ${{ inputs.output-wasm }}
